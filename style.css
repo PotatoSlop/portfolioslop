@@ -89,9 +89,10 @@
   --z-content: 2;
   --z-visual-effect: 5;
   --z-interactive: 10;
-  --z-footer: 999;
+  --z-footer: 100;
   --z-nav: 1000;
-  --z-sidebar: 1001;
+  --z-overlay: 101;
+  --z-sidebar: 1003;
 
   /*  #endregion */
 
@@ -339,13 +340,13 @@ nav ul {
   position: fixed;
   inset: 0;
   background-color: var(--color-overlay-dark);
-  z-index: var(--z-nav);
+  z-index: var(--z-overlay);
   opacity: 0;
   transition: opacity var(--duration-medium) var(--ease-default);
   pointer-events: none;
 }
 
-.sidebar-overlay.is-active {
+.sidebar-overlay.active {
   opacity: 1;
   pointer-events: auto;
 }
@@ -709,7 +710,7 @@ nav ul {
   border-bottom-right-radius: 0;
   filter: var(--shadow-footer-dark);
   overflow: hidden;
-  z-index: 1000;
+  z-index: var(--z-footer);
 }
 
 .footer-content-wrapper {
