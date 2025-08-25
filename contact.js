@@ -1,4 +1,3 @@
-// Enhanced Contact Form with Improved Accessibility
 let messageCounter;
 
 // EmailJS integration for contact form
@@ -33,7 +32,7 @@ function sendEmail(event) {
     showError('email', 'Please enter a valid email address');
   }
 
-  // Phone is optional, but if provided, validate format
+  // Phone validate format
   if (phone && !isValidPhone(phone)) {
     hasErrors = true;
     showError('phone', 'Please enter a valid phone number in format: (555) 123-4567');
@@ -51,7 +50,6 @@ function sendEmail(event) {
   }
 
   if (hasErrors) {
-    // Focus on first error field for accessibility
     focusFirstErrorField();
     showFormMessage('Please correct the errors below and try again.', 'error');
     return;
@@ -70,8 +68,7 @@ function sendEmail(event) {
       showFormMessage('Thank you! Your message has been sent successfully. I\'ll get back to you soon.', 'success');
       event.target.reset();
       clearErrorMessages();
-      updateMessageCounter(); // Reset counter
-      // Reset all field states
+      updateMessageCounter();
       resetFieldStates();
     }, function(error) {
       console.error('EmailJS Error:', error);
@@ -83,7 +80,6 @@ function sendEmail(event) {
 }
 
 // #region Helper Functions
-
 function isValidEmail(email) {
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
@@ -106,7 +102,6 @@ function showError(fieldId, message) {
   field.classList.add('error-field');
   field.classList.remove('success-field');
   
-  // Set aria-invalid for screen readers
   field.setAttribute('aria-invalid', 'true');
 }
 
@@ -164,7 +159,6 @@ function showFormMessage(message, type) {
   messageDiv.className = 'form-messages ' + type;
   messageDiv.style.display = 'block';
   
-  // Scroll to message for better UX
   messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
@@ -283,7 +277,6 @@ function setupRealTimeValidation() {
   }
 }
 
-// Phone number formatting
 function setupPhoneFormatting() {
   var phoneInput = document.getElementById('phone');
   
@@ -305,7 +298,6 @@ function setupPhoneFormatting() {
   }
 }
 
-// Dynamic textarea height based on viewport
 function adjustTextareaHeight() {
   var textarea = document.getElementById('message');
   if (textarea) {
@@ -344,7 +336,6 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', sendEmail);
   }
 
-  // Initialize all functionality
   setupRealTimeValidation();
   setupPhoneFormatting();
   adjustTextareaHeight();
@@ -358,6 +349,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Adjust textarea height on window resize
   window.addEventListener('resize', adjustTextareaHeight);
 });
