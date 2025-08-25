@@ -51,7 +51,6 @@ function sendEmail(event) {
   }
 
   if (hasErrors) {
-    // Focus on first error field for accessibility
     focusFirstErrorField();
     showFormMessage('Please correct the errors below and try again.', 'error');
     return;
@@ -70,8 +69,7 @@ function sendEmail(event) {
       showFormMessage('Thank you! Your message has been sent successfully. I\'ll get back to you soon.', 'success');
       event.target.reset();
       clearErrorMessages();
-      updateMessageCounter(); // Reset counter
-      // Reset all field states
+      updateMessageCounter(); // Reset character counter
       resetFieldStates();
     }, function(error) {
       console.error('EmailJS Error:', error);
@@ -106,7 +104,7 @@ function showError(fieldId, message) {
   field.classList.add('error-field');
   field.classList.remove('success-field');
   
-  // Set aria-invalid for screen readers
+  // Set aria for screen readers
   field.setAttribute('aria-invalid', 'true');
 }
 

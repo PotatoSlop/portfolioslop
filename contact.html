@@ -6,7 +6,7 @@
   <title>Contact - My Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
@@ -29,14 +29,14 @@
       <li><a href="about.html">About</a></li>
     </ul>
     <ul> <!-- Main Navbar  -->
-      <li>
+      <li class="logo">
         <a href="index.html">
           <img src="Assets/boilingName.gif" alt="Dylan Chen Portfolio Home" class="logo-img" />
         </a>
       </li>
-      <li class="hideOnMobile"><a href="index.html">Home</a></li>
-      <li class="hideOnMobile"><a href="projects.html">Projects</a></li>
-      <li class="hideOnMobile"><a href="about.html">About</a></li>
+      <li class="hideOnMobile nav-link"><a href="index.html">Home</a></li>
+      <li class="hideOnMobile nav-link"><a href="projects.html">Projects</a></li>
+      <li class="hideOnMobile nav-link"><a href="about.html">About</a></li>
       <li class="menu-button"><a id="hamburger-menu" href="#" aria-label="Open navigation menu"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
             viewBox="0 -960 960 960" width="24px" aria-hidden="true">
             <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
@@ -45,7 +45,7 @@
   </nav>
 
   <main class="container">
-    <h1>Contact</h1>
+    <h1>Let's Connect!</h1>
     
     <!-- Success/Error Messages -->
     <div id="form-messages" class="form-messages" role="alert" aria-live="polite" aria-atomic="true"></div>
@@ -97,7 +97,7 @@
           aria-describedby="phone-hint phone-error"
           autocomplete="tel"
         />
-        <div id="phone-hint" class="field-hint">Format: (XXX) XXX-XXXX</div>
+        <div id="phone-hint" class="field-hint">Format: (123) 456-7890</div>
         <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
       </div>
 
@@ -110,10 +110,10 @@
           name="message" 
           required 
           aria-describedby="message-hint message-error message-counter"
-          placeholder="Tell me about your project, question, or how I can help..."
+          placeholder="Give me your best project ideas!"
         ></textarea>
         <div class="message-footer">
-          <div id="message-hint" class="field-hint">Minimum 50 characters required</div>
+          <div id="message-hint" class="field-hint">Drop your message here</div>
           <div id="message-counter" class="character-counter" aria-live="polite">0/50</div>
         </div>
         <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
@@ -126,7 +126,8 @@
     </form>
   </main>
 
-  <div class="custom-cursor"></div>
+  <div class="sidebar-overlay"></div>
+  <script type="module" src="./hamburger-menu.js"></script>
   <script type="module" src="./contact.js"></script>
 </body>
 </html>

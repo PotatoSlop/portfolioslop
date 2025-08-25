@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Nunito:wght@400;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -26,14 +26,14 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <ul> <!-- Main Navbar  -->
-      <li>
+      <li class="logo">
         <a href="index.html">
-          <img src="Assets/boilingName.gif" alt="Logo" class="logo-img" />
+          <img src="Assets/boilingName.gif" alt="Dylan Chen Portfolio Home" class="logo-img" />
         </a>
       </li>
-      <li class="hideOnMobile"><a href="index.html">Home</a></li>
-      <li class="hideOnMobile"><a href="about.html">About</a></li>
-      <li class="hideOnMobile"><a href="contact.html">Contact</a></li>
+      <li class="hideOnMobile nav-link"><a href="index.html">Home</a></li>
+      <li class="hideOnMobile nav-link"><a href="about.html">About</a></li>
+      <li class="hideOnMobile nav-link"><a href="contact.html">Contact</a></li>
       <li class="menu-button"><a id="hamburger-menu" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
             viewBox="0 -960 960 960" width="24px">
             <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
@@ -41,12 +41,71 @@
     </ul>
   </nav>
 
-  <main class="container">
+  <header class="page-header container">
     <h1>My Projects</h1>
-    <p>This is the projects page. Showcase your work here.</p>
-  </main>
+    <p class="subtitle">A selection of my work across various disciplines. Jump to a section below.</p>
+  </header>
 
-  <div class="custom-cursor"></div>
+  <details id="engineering-page" class="project-section">
+    <summary class="section-title">Engineering</summary>
+      <ul class="project-list">
+        <li class="project-card">
+          <div class="project-image" style="background-color: #e0e0e0;">
+          </div>
+          <div class="project-info">
+            <h3>Project Title</h3>
+            <p>This is the Description of the Project.</p>
+            <a href="#" class="project-link">View Details</a>
+          </div>
+        </li>
+        <li class="project-card">
+          <div class="project-image" style="background-color: #e0e0e0;">
+          </div>
+          <div class="project-info">
+            <h3>Project Title 2</h3>
+            <p>This is the Description of the Project.</p>
+            <a href="#" class="project-link">View Details</a>
+          </div>
+        </li>
+        <li class="project-card">
+          <div class="project-image" style="background-color: #e0e0e0;">
+          </div>
+          <div class="project-info">
+            <h3>Project Title 3</h3>
+            <p>This is the Description of the Project.</p>
+            <a href="#" class="project-link">View Details</a>
+          </div>
+        </li>
+      </ul>
+  </details>
+
+  <details id="design-page" class="project-section">
+    <summary class="section-title">Design</summary>
+    <div class="container">
+      <ul class="project-list">
+      </ul>
+    </div>
+  </details>
+
+  <details id="photography-page" class="project-section">
+    <summary class="section-title">Photography</summary>
+    <div class="container">
+      <ul class="project-list">
+      </ul>
+    </div>
+  </details>
+
+  <details id="programming-page" class="project-section">
+    <summary class="section-title">Programming</summary>
+    <div class="container">
+      <ul class="project-list">
+      </ul>
+    </div>
+  </details>
+
+  <div class="sidebar-overlay"></div>
+  <script type="module" src="./projects.js"></script>
+  <script type="module" src="./hamburger-menu.js"></script>
 </body>
 
 </html>
