@@ -244,7 +244,11 @@ nav ul {
   padding: 0.3em 1.2em;
   position: relative;
   overflow: hidden;
-  transition: background-color var(--duration-medium), border-color var(--duration-medium);
+  transition: background-color var(--duration-medium), border-color var(--duration-medium), transform var(--duration-medium);
+}
+
+.nav-link:hover {
+  transform: scale(var(--transform-scale-hover-small));
 }
 
 .nav-link a {
@@ -322,6 +326,7 @@ nav ul {
   transform: translateX(100%);
   transition: transform var(--duration-medium) var(--ease-default), visibility var(--duration-medium);
   visibility: hidden;
+  justify-content: flex-start;
 }
 
 .sidebar.active {
@@ -696,7 +701,7 @@ nav ul {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 90dvh;
+  height: 90dvh;
   padding-top: 4rem;
   background-color: var(--color-primary);
   border-radius: 50% / 10%;
