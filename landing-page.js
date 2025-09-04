@@ -144,7 +144,6 @@ window.addEventListener("DOMContentLoaded", (event) => { //Inital Conditions for
     }
 
     if (categorySelectElement) {
-        // Find all draggable items and add listeners to them
         draggableItems.forEach(item => {
             item.addEventListener('dragstart', handleDragStart);
             item.addEventListener('dragend', handleDragEnd);
@@ -153,8 +152,6 @@ window.addEventListener("DOMContentLoaded", (event) => { //Inital Conditions for
 
         categorySelectElement.addEventListener('dragover', handleDragOver);
         categorySelectElement.addEventListener('drop', handleReturnDrop);
-
-        // Add these two for visual feedback
         categorySelectElement.addEventListener('dragenter', () => categorySelectElement.classList.add('drag-over'));
         categorySelectElement.addEventListener('dragleave', () => categorySelectElement.classList.remove('drag-over'));
     }
@@ -245,7 +242,6 @@ function handleDragStart(event) {
 }
 
 function handleDragEnd(event) {
-    // Clear the placeholder text when the drag finishes
     if (placeholderElement) {
         placeholderElement.textContent = "";
         event.currentTarget.style.opacity = '1';
@@ -284,10 +280,7 @@ function handleDrop(event) {
         // Check if there's a redirect link for the dropped item.
         const redirectUrl = pageRedirects[draggedItemId];
         if (redirectUrl) {
-            // Add a class to the body to trigger the fade-out animation.
             document.body.classList.add('fade-out');
-
-            // Wait for the animation to finish before changing the page.
             setTimeout(() => {
                 window.location.href = redirectUrl;
             }, 500);
@@ -300,7 +293,7 @@ function handleDragEnter(event) {
 }
 
 function handleDragLeave(event) {
-    // When the item leaves the drop zone, reset the text to default
+    // Reset the text to default
     if (typewriterElement && typewriterElement.classList.contains('scrolled')) {
         typewriterElement.textContent = initialText + " a";
     }
@@ -313,7 +306,6 @@ function handleReturnDrop(event) {
     const returnZone = event.currentTarget; // This is .categorySelect
 
     if (draggedElement) {
-        // Find the correct position to insert the element
         const droppedIndex = initialOrder.indexOf(draggedElement.id);
         let nextSibling = null;
 
@@ -324,11 +316,10 @@ function handleReturnDrop(event) {
             const siblingElement = returnZone.querySelector('#' + siblingId);
             if (siblingElement) {
                 nextSibling = siblingElement;
-                break; // Found the next sibling, stop looking
+                break;
             }
         }
-
-        // Insert before the next sibling, or append if it belongs at the end
+        
         if (nextSibling) {
             returnZone.insertBefore(draggedElement, nextSibling);
         } else {
